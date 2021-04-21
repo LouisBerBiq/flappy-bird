@@ -3,6 +3,6 @@ mix.disableNotifications();
 
 mix	.setPublicPath('dist/')
 	.copyDirectory('src/resources', 'dist/resources')
-	.copyDirectory('src/index.html', 'dist/index.html')
-	.js('src/js/main.js', 'dist/js/main.js')
-	.sass('src/scss/main.scss', 'dist/css/main.scss')
+	.copyDirectory('src/index.html', 'dist/')
+	.js('src/js/main.js', 'dist/js/')
+	.sass('src/scss/main.scss', 'dist/css/')
