@@ -1,9 +1,11 @@
+import settings from "./settings.js";
+// import spriteRenderer from "./spriteRenderer.js";
 import background from "./background.js";
 
 const game = {
-	canvas: document.querySelector('#game'),
-	canvasContext: null,
-	spriteSheetUrl: '../resources/sprite.png',
+	canvas: settings.canvas,
+	canvasContext: settings.canvasContext,
+	spriteSheetUrl: settings.spriteSheetUrl,
 	sprite: new Image(),
 
 	init() {
