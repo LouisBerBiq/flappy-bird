@@ -1,15 +1,27 @@
+import background from "./background.js";
+
 const game = {
 	canvas: document.querySelector('#game'),
 	canvasContext: null,
+	spriteSheetUrl: '../resources/sprite.png',
+	sprite: new Image(),
+
 	init() {
 		this.canvasContext = this.canvas.getContext('2d');
-		this.update();
+		this.sprite.src = this.spriteSheetUrl;
+		this.sprite.addEventListener('load', () => {
+			//normally, you would use promises for this but in this case, there's only ONE operation so it's ok.
+			background.init(this);
+			this.update();
+		});
 	},
 	update() {
 		window.requestAnimationFrame(() => {
 			this.update();
 		});
 		this.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+		background.update();
 	},
 }
 
