@@ -1,6 +1,7 @@
 import settings from "./settings.js";
 // import spriteRenderer from "./spriteRenderer.js";
 import background from "./background.js";
+import ground from "./ground.js";
 
 const game = {
 	canvas: settings.canvas,
@@ -14,6 +15,7 @@ const game = {
 		this.sprite.addEventListener('load', () => {
 			//normally, you would use promises for this but in this case, there's only ONE operation so it's ok.
 			background.init(this);
+			ground.init(this);
 			this.update();
 		});
 	},
@@ -24,6 +26,7 @@ const game = {
 		this.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
 		background.update();
+		ground.update();
 	},
 }
 

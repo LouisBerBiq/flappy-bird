@@ -4,6 +4,8 @@ const settings = {
 	canvasHeight: 511,
 	canvasContext: null,
 	spriteSheetUrl: '../resources/sprite.png',
+
+	scrollingSpeed: 3,
 }
 
 export default settings
