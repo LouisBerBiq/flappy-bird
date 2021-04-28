@@ -2,6 +2,7 @@ import settings from "./settings.js";
 // import spriteRenderer from "./spriteRenderer.js";
 import background from "./background.js";
 import ground from "./ground.js";
+import birdy from "./birdy.js";
 
 const game = {
 	canvas: settings.canvas,
@@ -16,6 +17,7 @@ const game = {
 			//normally, you would use promises for this but in this case, there's only ONE operation so it's ok.
 			background.init(this);
 			ground.init(this);
+			birdy.init(this)
 			this.update();
 		});
 	},
@@ -27,6 +29,7 @@ const game = {
 
 		background.update();
 		ground.update();
+		birdy.update()
 	},
 }
 
