@@ -5,6 +5,8 @@ import ground from "./ground.js";
 const birdy = {
 	animationFrame: 0,
 	totalanimationFrames: 3,
+	frameInterval: 0,
+	maxFrameInterval: 5,
 	frameWidth: 34,
 	frameHeight: 24,
 	SpriteAreaFrames: [
@@ -31,7 +33,11 @@ const birdy = {
 		this.render();
 	},
 	render() {
-		this.animationFrame = this.animationFrame < this.totalanimationFrames - 1 ? this.animationFrame + 1 : 0
+		this.frameInterval ++;
+		if (!(this.frameInterval % this.maxFrameInterval)) {
+			this.frameInterval = 0;
+			this.animationFrame = this.animationFrame < this.totalanimationFrames - 1 ? this.animationFrame + 1 : 0
+		}
 		this.canvasContext.save();
 		this.canvasContext.translate(this.x, this.y);
 		this.canvasContext.rotate(0);
