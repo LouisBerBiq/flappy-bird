@@ -14,7 +14,6 @@ const game = {
 		this.canvasContext = this.canvas.getContext('2d');
 		this.sprite.src = this.spriteSheetUrl;
 		this.sprite.addEventListener('load', () => {
-			//normally, you would use promises for this but in this case, there's only ONE operation so it's ok.
 			background.init(this);
 			ground.init(this);
 			birdy.init(this)
@@ -34,3 +33,8 @@ const game = {
 }
 
 game.init();
+
+/* BEGINNER'S NOTES
+
+normally, you would use promises for asynchornous operations but in this case, there's only ONE operation so it's ok.
+*/
