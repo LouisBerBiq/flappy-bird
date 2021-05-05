@@ -5,7 +5,7 @@ export default class TubesWall {
 	constructor() {
 		this.canvasContext = settings.canvasContext;
 
-		this.verticalTubeSpacing = 80;
+		this.verticalTubeSpacing = 100;
 
 		this.x = settings.canvasWidth;
 		this.width = 52;
@@ -15,7 +15,6 @@ export default class TubesWall {
 	}
 	update() {
 		this.x -= settings.scrollingSpeed;
-
 		this.render();
 	}
 	render() {
@@ -35,6 +34,7 @@ export default class TubesWall {
 			}
 		)
 		this.canvasContext.restore();
+
 		// down side
 		this.canvasContext.save();
 		this.canvasContext.translate(this.x, this.bottomY);
