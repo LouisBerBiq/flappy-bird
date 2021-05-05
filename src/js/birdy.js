@@ -23,9 +23,8 @@ const birdy = {
 
 	init(game) {
 		// redefine properties
-		// this.y = (settings.canvasHeight - ground.SpriteArea.dh) / 4;
-		this.y = settings.canvasHeight / 4
-		// I have no idea why I have to divide this by 2 to get the real size
+		this.x = 40;
+		this.y = (settings.canvasHeight - ground.SpriteArea.dh) / 2;
 
 		this.totalAnimationFrames = this.SpriteAreaFrames.length - 1;
 
@@ -33,10 +32,12 @@ const birdy = {
 		this.canvasContext = game.canvasContext;
 	},
 	update() {
-		// if (this.fallSpeed < this.maxFallSpeed)
-		// 	this.fallSpeed += settings.gravity;
-		// this.y += this.fallSpeed;
-		// this.checkGroundCollision()
+		if (this.game.hasStarted) {
+			if (this.fallSpeed < this.maxFallSpeed)
+				this.fallSpeed += settings.gravity;
+			this.y += this.fallSpeed;
+			this.checkGroundCollision()
+		}
 
 		spriteRenderer.init(this.game); //need to find a way to remove this
 		this.render();
@@ -64,13 +65,20 @@ const birdy = {
 		)
 		this.canvasContext.restore();
 	},
-	// checkGroundCollision() {
-	// 	if (this.y + this.frameHeight / 2 > ground.SpriteArea.dy) {
-	// 		console.log(ground.SpriteArea.dy);
-	// 		this.y = ground.SpriteArea.dy - this.frameHeight / 2;
-	// 		this.fallSpeed = -this.maxFallSpeed * 20;
-	// 	}
-	// }
+	kickInButt() {
+		this.fallSpeed = -this.maxFallSpeed * 1.2;
+	},
+	checkGroundCollision() {
+		if (this.y + this.frameHeight > ground.SpriteArea.dy) {
+			this.y = ground.SpriteArea.dy - this.frameHeight;
+			this.kickInButt();
+		}
+	}
 }
 
 export default birdy
+/* BEGINNER'S NOTES
+
+I have no idea why I have to divide this by 2 to get the real size <- I'm still not sure, should look more into it.
+
+*/
