@@ -12,9 +12,6 @@ const background = {
 		dw: settings.canvasWidth,
 		dh: settings.canvasHeight,
 	},
-	init(game) {
-		this.game = game
-	},
 	update() {
 		//TODO: background parallax
 

@@ -23,8 +23,7 @@ const game = {
 		settings.init();
 		settings.sprite.addEventListener('load', () => {
 			controller.init(this);
-			background.init(this);
-			ground.init(this);
+			ground.init();
 			birdy.init(this);
 			this.update();
 		});
