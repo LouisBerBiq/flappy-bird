@@ -37,6 +37,7 @@ const birdy = {
 				this.fallSpeed += settings.gravity;
 			this.y += this.fallSpeed;
 			this.checkGroundCollision()
+			this.checkPipesCollision()
 		}
 
 		this.render();
@@ -65,13 +66,22 @@ const birdy = {
 		this.canvasContext.restore();
 	},
 	kickInButt() {
-		this.fallSpeed = -this.maxFallSpeed * 1.2;
+		this.fallSpeed = -this.maxFallSpeed * .8;
 	},
 	checkGroundCollision() {
 		if (this.y + this.frameHeight > ground.SpriteArea.dy) {
 			this.y = ground.SpriteArea.dy - this.frameHeight;
 			this.kickInButt();
 		}
+	},
+	checkPipesCollision() {
+		this.game.tubesWalls.forEach((tubeWall) => {
+			if (this.x + -this.frameWidth / 2 > tubeWall.x && this.x + this.frameWidth / 2 < tubeWall.x + tubeWall.width) {
+				if ((this.y + this.frameWidth / 2) > tubeWall.bottomY || (this.y - this.frameWidth / 2) < (tubeWall.topY + tubeWall.height)) {
+					this.game.gameOver();
+				}
+			}
+		});
 	}
 }
 
