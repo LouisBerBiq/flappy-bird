@@ -23,6 +23,7 @@ const game = {
 		this.canvasContext = this.canvas.getContext('2d');
 		this.sprite.src = this.spriteSheetUrl;
 		this.sprite.addEventListener('load', () => {
+			settings.init();
 			spriteRenderer.init(this)
 			controller.init(this);
 			background.init(this);
