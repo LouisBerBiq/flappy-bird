@@ -12,16 +12,14 @@ const ground = {
 		dw: 336,
 		dh: 112,
 	},
-	init(game) {
-		this.game = game
+	init() {
 		this.maxOffset = this.SpriteArea.sw - settings.canvasWidth;
 
 		this.SpriteArea.dy = settings.canvasHeight - this.SpriteArea.dh
 	},
 	update() {
-		if (this.SpriteArea.dx <= -this.maxOffset) {
+		if (this.SpriteArea.dx <= -this.maxOffset)
 			this.SpriteArea.dx = 0
-		}
 		this.SpriteArea.dx -= settings.scrollingSpeed;
 
 		spriteRenderer.renderSpriteArea(this.SpriteArea);
