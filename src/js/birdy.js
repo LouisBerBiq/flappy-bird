@@ -50,7 +50,7 @@ const birdy = {
 		}
 		this.canvasContext.save();
 		this.canvasContext.translate(this.x, this.y);
-		this.canvasContext.rotate(0);
+		this.canvasContext.rotate((this.fallSpeed / this.maxFallSpeed) * 0.7);
 		spriteRenderer.renderSpriteArea(
 			{
 				sx: this.SpriteAreaFrames[this.animationFrame].sx,
