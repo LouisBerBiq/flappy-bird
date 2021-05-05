@@ -6,3 +6,4 @@ mix	.setPublicPath('dist/')
 	.copy('src/index.html', 'dist/')
 	.js('src/js/main.js', 'dist/js/')
 	.sass('src/scss/main.scss', 'dist/css/')
+	.sourceMaps();
