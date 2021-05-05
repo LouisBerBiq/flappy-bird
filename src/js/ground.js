@@ -24,7 +24,6 @@ const ground = {
 		}
 		this.SpriteArea.dx -= settings.scrollingSpeed;
 
-		spriteRenderer.init(this.game); //need to find a way to remove this
 		spriteRenderer.renderSpriteArea(this.SpriteArea);
 	}
 }

@@ -4,7 +4,7 @@ import controller from "./controller.js";
 import background from "./background.js";
 import ground from "./ground.js";
 import birdy from "./birdy.js";
-import TubesWall from "./tubeWall.js";
+import spriteRenderer from "./spriteRenderer.js";
 
 const game = {
 	canvas: settings.canvas,
@@ -22,6 +22,7 @@ const game = {
 		this.canvasContext = this.canvas.getContext('2d');
 		this.sprite.src = this.spriteSheetUrl;
 		this.sprite.addEventListener('load', () => {
+			spriteRenderer.init(this)
 			controller.init(this);
 			background.init(this);
 			ground.init(this);

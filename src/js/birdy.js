@@ -39,7 +39,6 @@ const birdy = {
 			this.checkGroundCollision()
 		}
 
-		spriteRenderer.init(this.game); //need to find a way to remove this
 		this.render();
 	},
 	render() {

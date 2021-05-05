@@ -18,7 +18,6 @@ const background = {
 	update() {
 		//TODO: background parallax
 
-		spriteRenderer.init(this.game);
 		spriteRenderer.renderSpriteArea(this.SpriteArea);
 	},
 }
