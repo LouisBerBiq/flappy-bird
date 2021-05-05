@@ -1,17 +1,21 @@
 import settings from "./settings.js";
-// import spriteRenderer from "./spriteRenderer.js";
 import controller from "./controller.js";
+
 import background from "./background.js";
 import ground from "./ground.js";
 import birdy from "./birdy.js";
+import TubesWall from "./tubeWall.js";
 
 const game = {
 	canvas: settings.canvas,
 	canvasContext: settings.canvasContext,
 	spriteSheetUrl: settings.spriteSheetUrl,
 	sprite: new Image(),
-	tubeWalls: [],
-	
+	tubesWalls: [],
+	maxTubeWalls: 3, //TODO: auto calculate at game start
+	frameCounter: 0,
+	frameInterval: 80,
+
 	hasStarted: false,
 
 	init() {
@@ -30,10 +34,24 @@ const game = {
 			this.update();
 		});
 		this.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
+		
+		background.update(); //this has to be drawn before the pipes
 
-		background.update();
+		if (this.hasStarted) {
+			if (this.frameCounter++ > this.frameInterval) {
+				if (this.tubesWalls.length >= this.maxTubeWalls) {
+					this.tubesWalls.splice(0, 1);
+				}
+				this.tubesWalls.push(new TubesWall(this));
+				this.frameCounter = 0;
+			}
+			this.tubesWalls.forEach((tubesWall) => {
+				tubesWall.update();
+			});
+		}
+
 		ground.update();
-		birdy.update()
+		birdy.update();
 	},
 }
 
