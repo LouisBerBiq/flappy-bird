@@ -1,5 +1,6 @@
 import settings from "./settings.js";
 // import spriteRenderer from "./spriteRenderer.js";
+import controller from "./controller.js";
 import background from "./background.js";
 import ground from "./ground.js";
 import birdy from "./birdy.js";
@@ -9,11 +10,15 @@ const game = {
 	canvasContext: settings.canvasContext,
 	spriteSheetUrl: settings.spriteSheetUrl,
 	sprite: new Image(),
+	tubeWalls: [],
+	
+	hasStarted: false,
 
 	init() {
 		this.canvasContext = this.canvas.getContext('2d');
 		this.sprite.src = this.spriteSheetUrl;
 		this.sprite.addEventListener('load', () => {
+			controller.init(this);
 			background.init(this);
 			ground.init(this);
 			birdy.init(this)
