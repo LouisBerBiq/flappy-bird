@@ -1,8 +1,6 @@
 import settings from "./settings";
 import spriteRenderer from "./spriteRenderer";
 
-//TODO: tubeWall class with instacing functionalities (add to array, remove from array)
-
 export default class TubesWall {
 	constructor() {
 		this.canvasContext = settings.canvasContext;
