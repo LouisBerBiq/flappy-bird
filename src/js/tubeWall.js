@@ -4,9 +4,8 @@ import spriteRenderer from "./spriteRenderer";
 //TODO: tubeWall class with instacing functionalities (add to array, remove from array)
 
 export default class TubesWall {
-	constructor(game) {
-		this.game = game;
-		this.canvasContext = game.canvasContext;
+	constructor() {
+		this.canvasContext = settings.canvasContext;
 
 		this.verticalTubeSpacing = 80;
 

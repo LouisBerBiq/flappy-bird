@@ -4,6 +4,7 @@ import controller from "./controller.js";
 import background from "./background.js";
 import ground from "./ground.js";
 import birdy from "./birdy.js";
+import TubesWall from "./TubeWall.js";
 import spriteRenderer from "./spriteRenderer.js";
 
 const game = {
