@@ -16,10 +16,10 @@ const birdy = {
 	],
 
 	// game properties
-	x: 20,
+	x: 0,
 	y: 0,
 	fallSpeed: 0,
-	maxFallSpeed: 5,
+	maxFallSpeed: 10,
 
 	init(game) {
 		// redefine properties
@@ -57,8 +57,8 @@ const birdy = {
 				sy: this.SpriteAreaFrames[this.animationFrame].sy,
 				sw: this.frameWidth,
 				sh: this.frameHeight,
-				dx: this.x,
-				dy: this.y,
+				dx: -this.frameWidth / 2,
+				dy: -this.frameHeight / 2,
 				dw: this.frameWidth,
 				dh: this.frameHeight,
 			}
@@ -77,6 +77,7 @@ const birdy = {
 }
 
 export default birdy
+
 /* BEGINNER'S NOTES
 
 I have no idea why I have to divide this by 2 to get the real size <- I'm still not sure, should look more into it.

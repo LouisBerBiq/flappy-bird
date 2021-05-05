@@ -6,7 +6,7 @@ const settings = {
 	spriteSheetUrl: '../resources/sprite.png',
 
 	scrollingSpeed: 3,
-	gravity: 10
+	gravity: 1
 }
 
 export default settings
