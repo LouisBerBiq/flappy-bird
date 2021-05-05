@@ -20,7 +20,6 @@ const game = {
 	hasStarted: false,
 
 	init() {
-		this.canvasContext = this.canvas.getContext('2d');
 		this.sprite.src = this.spriteSheetUrl;
 		this.sprite.addEventListener('load', () => {
 			settings.init();
@@ -36,7 +35,7 @@ const game = {
 		window.requestAnimationFrame(() => {
 			this.update();
 		});
-		this.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
+		settings.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		
 		background.update(); //this has to be drawn before the pipes
 

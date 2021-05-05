@@ -1,10 +1,9 @@
+import settings from "./settings";
+
 const spriteRenderer = {
-	init(game) {
-		this.game = game
-	},
 	renderSpriteArea(coordinates) {
-		this.game.canvasContext.drawImage(
-			this.game.sprite,
+		settings.canvasContext.drawImage(
+			settings.sprite,
 			coordinates.sx,
 			coordinates.sy,
 			coordinates.sw,

@@ -29,7 +29,7 @@ const birdy = {
 		this.totalAnimationFrames = this.SpriteAreaFrames.length - 1;
 
 		this.game = game;
-		this.canvasContext = game.canvasContext;
+		this.canvasContext = settings.canvasContext;
 	},
 	update() {
 		if (this.game.hasStarted) {
