@@ -15,7 +15,8 @@ const game = {
 	maxTubeWalls: 3, //TODO: auto calculate at game start
 	frameCounter: 0,
 	frameInterval: 80,
-
+	
+	requestAnimationId: 0,
 	hasStarted: false,
 
 	init() {
@@ -29,7 +30,7 @@ const game = {
 		});
 	},
 	update() {
-		window.requestAnimationFrame(() => {
+		this.requestAnimationId = window.requestAnimationFrame(() => {
 			this.update();
 		});
 		settings.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -52,6 +53,9 @@ const game = {
 		ground.update();
 		birdy.update();
 	},
+	gameOver() {
+		window.cancelAnimationFrame(this.requestAnimationId);
+	}
 }
 
 game.init();
