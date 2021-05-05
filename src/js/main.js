@@ -19,9 +19,8 @@ const game = {
 	hasStarted: false,
 
 	init() {
-		this.sprite.src = this.spriteSheetUrl;
-		this.sprite.addEventListener('load', () => {
-			settings.init();
+		settings.init();
+		settings.sprite.addEventListener('load', () => {
 			controller.init(this);
 			background.init(this);
 			ground.init(this);

@@ -13,7 +13,8 @@ const settings = {
 	pipeSpacing2: 25,
 	init() {
 		this.canvasContext= this.canvas.getContext('2d');
-		// this.sprite.src = this.spriteSheetUrl;
+		this.sprite.src = this.spriteSheetUrl;
+		console.log(this.sprite);
 	}
 }
 
