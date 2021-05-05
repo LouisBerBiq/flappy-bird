@@ -27,7 +27,7 @@ const game = {
 			controller.init(this);
 			background.init(this);
 			ground.init(this);
-			birdy.init(this)
+			birdy.init(this);
 			this.update();
 		});
 	},
