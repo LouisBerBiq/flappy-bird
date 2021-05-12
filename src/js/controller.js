@@ -1,5 +1,5 @@
-import birdy from "./birdy";
-import settings from "./settings";
+import birdy from "./birdy.js";
+import menuElements from "./menuElements.js";
 
 const controller = {
 	init(game) {
@@ -7,8 +7,8 @@ const controller = {
 			if (e.key === 'j') {
 				if (!game.hasStarted) {
 					game.hasStarted = true;
-					settings.maintTitle.classList.remove('bounceUpAndDown');
-					settings.maintTitle.classList.add('fadeout');
+					menuElements.maintTitle.classList.remove('bounceUpAndDown');
+					menuElements.maintTitle.classList.add('fadeout');
 					//FUCK THIS SHIT, THIS WILL DO
 				}
 				birdy.kickInButt()
