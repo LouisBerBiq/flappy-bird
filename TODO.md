@@ -10,6 +10,12 @@
 
 
 
+## UI
+
 - [ ] fixing animation skipping 
+
+- [ ] fix elements height affecting others
+
+- [ ] why tf is there a right margin?
 
 
