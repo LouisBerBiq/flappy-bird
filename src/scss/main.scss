@@ -1,23 +1,36 @@
+@import url(./reset.scss);
 
-body {
-  background: url('../resources/bcg.png');
+@mixin spriteCoordinates($position-x, $position-y, $width, $height) {
+  background-position-x: $position-x;
+  background-position-y: $position-y;
+  width: $width;
+  height: $height;
 }
 
-h1 {
-  font-family: 'Droid Sans', sans-serif;
-  letter-spacing: 4px;
-  color: turquoise;
-  text-align: center;
-  text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
-  text-transform: uppercase;
+@mixin keyFrameBounceUpAndDown($initialTransform) {
+  @keyframes bounceUpAndDown {
+    0% {
+      transform:  translateY($initialTransform);
+    }
+    50% {
+      transform:  translateY($initialTransform - 10px);
+    }
+    100% {
+      transform:  translateY($initialTransform);
+    }
+  }
 }
 
-canvas {
-  display: block;
-  margin: 20px auto;
-  border: 1px solid rgba(0, 50, 100, 0.4);
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
+@keyframes fadeOut {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
 
+* {
   image-rendering: optimizeSpeed;
 	image-rendering: -moz-crisp-edges;
 	image-rendering: -webkit-optimize-contrast;
@@ -28,4 +41,47 @@ canvas {
 
 ::selection {
   background: transparent;
+}
+
+body {
+  background: url('../resources/bcg.png');
+  display: grid;
+}
+
+#gameUI, #gameCanvas {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#gameCanvas {
+  display: block;
+  margin: 20px auto;
+  border: 1px solid rgba(0, 50, 100, 0.4);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+#gameUI {
+  z-index: 1;
+  margin: auto;
+}
+
+UIElement {
+  background-image: url('../resources/sprite.png');
+  background-repeat: no-repeat;
+}
+
+#mainTitle {
+  @extend UIElement;
+  @include spriteCoordinates(-699px, -180px, 183px, 52px);
+  $initialTransform: -144px;
+  transform: translateY($initialTransform);
+  @include keyFrameBounceUpAndDown($initialTransform);
+}
+
+.bounceUpAndDown {
+  animation: bounceUpAndDown 1s infinite forwards;
+}
+
+.fadeout {
+  animation: fadeOut 1s forwards;
 }

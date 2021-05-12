@@ -1,5 +1,6 @@
 const settings = {
-	canvas: document.querySelector('#game'),
+	canvas: document.querySelector('#gameCanvas'),
+	maintTitle : document.querySelector('#mainTitle'),
 	canvasWidth: 288,
 	canvasHeight: 511,
 	game: null,
