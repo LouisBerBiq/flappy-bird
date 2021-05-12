@@ -30,6 +30,7 @@
   }
 }
 
+
 * {
   image-rendering: optimizeSpeed;
 	image-rendering: -moz-crisp-edges;
@@ -60,14 +61,25 @@ body {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
 }
 
-#gameUI {
-  z-index: 1;
-  margin: auto;
-}
 
 UIElement {
+  margin: auto;
   background-image: url('../resources/sprite.png');
   background-repeat: no-repeat;
+}
+
+.bounceUpAndDown {
+  animation: bounceUpAndDown 1s infinite forwards;
+}
+
+.fadeout {
+  animation: fadeOut 1s forwards;
+}
+
+
+#gameUI {
+  z-index: 1;
+  margin: auto; //fix this
 }
 
 #mainTitle {
@@ -78,10 +90,9 @@ UIElement {
   @include keyFrameBounceUpAndDown($initialTransform);
 }
 
-.bounceUpAndDown {
-  animation: bounceUpAndDown 1s infinite forwards;
-}
-
-.fadeout {
-  animation: fadeOut 1s forwards;
+#startButton {
+  @extend UIElement;
+  @include spriteCoordinates(-582px, -180px, 118px, 101px);
+  $initialTransform: -10px;
+  transform: translateY($initialTransform);
 }
