@@ -37,7 +37,7 @@ const birdy = {
 				this.fallSpeed += settings.gravity;
 			this.y += this.fallSpeed;
 			this.checkGroundCollision()
-			this.checkPipesCollision()
+			// this.checkPipesCollision()
 		}
 
 		this.render();
