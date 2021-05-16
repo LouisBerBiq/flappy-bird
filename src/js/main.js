@@ -5,6 +5,7 @@ import background from "./background.js";
 import ground from "./ground.js";
 import birdy from "./birdy.js";
 import TubesWall from "./TubeWall.js";
+import scoring from "./scoring.js";
 
 const game = {
 	canvas: settings.canvas,
@@ -25,6 +26,7 @@ const game = {
 			controller.init(this);
 			ground.init();
 			birdy.init(this);
+			scoring.init(this);
 			this.update();
 		});
 	},
@@ -42,7 +44,9 @@ const game = {
 					this.tubesWalls.splice(0, 1);
 				}
 				this.tubesWalls.push(new TubesWall(this));
+				scoring.scoreTimer();
 				this.frameCounter = 0;
+				scoring.firstPipe = false; //this is stupid but it works
 			}
 			this.tubesWalls.forEach((tubesWall) => {
 				tubesWall.update();
