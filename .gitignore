@@ -1,5 +1,6 @@
 /node_modules
 /dist
+/.vscode
 # mix-manifest.json
 .idea
 .DS_Store
