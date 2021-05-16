@@ -9,6 +9,7 @@ const controller = {
 					game.hasStarted = true;
 					menuElements.maintTitle.classList.remove('bounceUpAndDown');
 					menuElements.maintTitle.classList.add('fadeout');
+					menuElements.startButton.classList.add('fadeout');
 					//FUCK THIS SHIT, THIS WILL DO
 				}
 				birdy.kickInButt()
