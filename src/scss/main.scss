@@ -79,7 +79,7 @@ UIElement {
 #startButton {
   @extend UIElement;
   @include spriteCoordinates(-582px, -180px, 118px, 101px);
-  $initialTransform: -10px;
+  $initialTransform: 32px;
   transform: translateY($initialTransform);
 }
 
