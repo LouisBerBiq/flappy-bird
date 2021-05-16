@@ -1,0 +1,6 @@
+@mixin spriteCoordinates($position-x, $position-y, $width, $height) {
+  background-position-x: $position-x;
+  background-position-y: $position-y;
+  width: $width;
+  height: $height;
+}

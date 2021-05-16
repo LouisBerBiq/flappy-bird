@@ -1,25 +1,6 @@
-@import url(./reset.scss);
-
-@mixin spriteCoordinates($position-x, $position-y, $width, $height) {
-  background-position-x: $position-x;
-  background-position-y: $position-y;
-  width: $width;
-  height: $height;
-}
-
-@mixin keyFrameBounceUpAndDown($initialTransform) {
-  @keyframes bounceUpAndDown {
-    0% {
-      transform:  translateY($initialTransform);
-    }
-    50% {
-      transform:  translateY($initialTransform - 10px);
-    }
-    100% {
-      transform:  translateY($initialTransform);
-    }
-  }
-}
+@import './_reset.scss';
+@import './_mixins.scss';
+@import './_mixinKeyframes.scss';
 
 @keyframes fadeOut {
   from {
