@@ -2,25 +2,15 @@
 @import './_mixins.scss';
 @import './_mixinKeyframes.scss';
 
-@keyframes fadeOut {
-  from {
-    opacity: 100%;
-  }
-  to {
-    opacity: 0%;
-  }
-}
-
 @include scoreCounterSteps(-318, -366, -582, -610, -638, -666);
-
 
 * {
   image-rendering: optimizeSpeed;
-	image-rendering: -moz-crisp-edges;
-	image-rendering: -webkit-optimize-contrast;
-	image-rendering: -o-crisp-edges;
-	image-rendering: pixelated;
-	-ms-interpolation-mode: nearest-neighbor;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -o-crisp-edges;
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
 }
 
 ::selection {
@@ -32,7 +22,8 @@ body {
   display: grid;
 }
 
-#gameUI, #gameCanvas {
+
+#gameCanvas, #gameUI {
   grid-column: 1;
   grid-row: 1;
 }
@@ -42,6 +33,13 @@ body {
   margin: 20px auto;
   border: 1px solid rgba(0, 50, 100, 0.4);
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+#gameUI {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -60,13 +58,6 @@ UIElement {
   animation: fadeOut 1s forwards;
 }
 
-
-#gameUI {
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 #mainTitle {
   @extend UIElement;
@@ -101,7 +92,7 @@ UIElement {
   animation-play-state: paused;
 }
 
-#scoreCounterSecondDigit {
+#scoreCounterSecondDigit, #scoreCounterThirdDigit {
   @extend #scoreCounterFirstDigit;
   display: none;
 }
