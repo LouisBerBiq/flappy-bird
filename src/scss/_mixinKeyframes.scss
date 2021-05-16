@@ -1,0 +1,58 @@
+@mixin keyFrameBounceUpAndDown($initialTransform) {
+	@keyframes bounceUpAndDown {
+	  0% {
+		transform: translateY($initialTransform);
+	  }
+	  50% {
+		transform: translateY($initialTransform - 10px);
+	  }
+	  100% {
+		transform: translateY($initialTransform);
+	  }
+	}
+  }
+
+@mixin scoreCounterSteps($firstRow, $secondRow, $first, $second, $third, $fourth) {
+	@keyframes scoreCounterSteps {
+		0% {
+		background-position-x: -990px;
+		background-position-y: -118px;
+		}
+		10% {
+		background-position-x: -270px;
+		background-position-y: -908px;
+		}
+		20% {
+		background-position-x: $first + unquote("px");
+		background-position-y: $firstRow + unquote("px");
+		}
+		30% {
+		background-position-x: $second + unquote("px");
+		background-position-y: $firstRow + unquote("px");
+		}
+		40% {
+		background-position-x: $third + unquote("px");
+		background-position-y: $firstRow + unquote("px");
+		}
+		50% {
+		background-position-x: $fourth + unquote("px");
+		background-position-y: $firstRow + unquote("px");
+		}
+		60% {
+		background-position-x: $first + unquote("px");
+		background-position-y: $secondRow + unquote("px");
+		}
+		70% {
+		background-position-x: $second + unquote("px");
+		background-position-y: $secondRow + unquote("px");
+		}
+		80% {
+		background-position-x: $third + unquote("px");
+		background-position-y: $secondRow + unquote("px");
+		}
+		90% {
+		background-position-x: $fourth + unquote("px");
+		background-position-y: $secondRow + unquote("px");
+		}
+	}
+}

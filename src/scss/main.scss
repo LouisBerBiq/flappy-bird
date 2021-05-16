@@ -11,6 +11,8 @@
   }
 }
 
+@include scoreCounterSteps(-318, -366, -582, -610, -638, -666);
+
 
 * {
   image-rendering: optimizeSpeed;
@@ -79,4 +81,27 @@ UIElement {
   @include spriteCoordinates(-582px, -180px, 118px, 101px);
   $initialTransform: -10px;
   transform: translateY($initialTransform);
+}
+
+#scoreCounterCountainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#scoreCounterFirstDigit {
+  @extend UIElement;
+  position: static;
+  $initialTransform: -216px;
+  width: 28px;
+  height: 40px;
+  transform: translateY($initialTransform);
+  animation: scoreCounterSteps 10s steps(10, end) infinite;
+  animation-delay: -0s;
+  animation-play-state: paused;
+}
+
+#scoreCounterSecondDigit {
+  @extend #scoreCounterFirstDigit;
+  display: none;
 }
