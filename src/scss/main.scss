@@ -1,6 +1,7 @@
 @import './_reset.scss';
 @import './_mixins.scss';
 @import './_mixinKeyframes.scss';
+@import './_keyframes.scss';
 
 @include scoreCounterSteps(-318, -366, -582, -610, -638, -666);
 
